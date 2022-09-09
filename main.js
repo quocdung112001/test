@@ -788,6 +788,98 @@
 //     console.log(e.target.id);
 // }
 
+var users = [
+    {
+        id : 1,
+        name : "Dung",
+        avatar : "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS5SBCgK1Baplawxi84ccVQYr5qA1V1DtVvdg&usqp=CAU"
+    },
+    {
+        id : 2,
+        name : "Ly",
+        avatar : "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS5SBCgK1Baplawxi84ccVQYr5qA1V1DtVvdg&usqp=CAU"
+    },
+    {
+        id : 3,
+        name : "Phong",
+        avatar : "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS5SBCgK1Baplawxi84ccVQYr5qA1V1DtVvdg&usqp=CAU"
+    },
+    {
+        id : 4,
+        name : "Lok",
+        avatar : "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS5SBCgK1Baplawxi84ccVQYr5qA1V1DtVvdg&usqp=CAU"
+    }
+];
+
+var statuss = [
+    {
+        id : 1,
+        userId: 2,
+        title : "Moi cac anh vao"
+    },
+    {
+        id : 2,
+        userId: 4,
+        title : "Moi cac anh vao"
+    },
+    {
+        id : 4,
+        userId: 3,
+        title : "Moi cac anh vao"
+    }
+];
+
+var container = document.querySelector('.root');
+container.innerHTML = '<ul></ul>';
+var listComment = document.querySelector('ul');
+listComment.className = 'comment__list';
+
+function getComment(){
+    return new Promise(function(resolve){
+        setTimeout(function(){
+            resolve(statuss);
+        },1000);
+    });
+}
+
+function getUsersById(userIds){
+    return new Promise(function(resolve){
+        var result = users.filter(function(user){
+            return userIds.includes(user.id);
+        });
+        setTimeout(function(){
+            resolve(result);
+        },1000);
+    });
+}
+
+getComment()
+    .then(function(sts){
+        var userId = sts.map(function(stsValue){
+            return stsValue.userId;
+        });
+        return getUsersById(userId)
+            .then(function(users){
+                return users;
+            });
+    })
+    .then(function(data){
+        console.log(data);
+        var item = data.map(function(value){
+            return `<li><span>Toi ten: ${value.name}</span>
+            <img src='${value.avatar}'></li>`
+        });
+        console.log(item);
+        writeHTML(item);
+    });
+
+
+function writeHTML(a){
+    a.forEach(function(value){
+        listComment.innerHTML += value;
+    });
+}
+
 var inputName = document.querySelector('#name');
 var inputPass = document.querySelector('#password');
 var inputCountry = document.querySelector('#country');
@@ -871,6 +963,7 @@ var searchContainer = document.querySelector('.search__input');
 var searchButton = document.querySelector('#btnSearch');
 
 searchButton.addEventListener('click',function(e){
+    
     this.parentElement.parentElement.classList.toggle('open__search');
     this.parentElement.previousElementSibling.focus();
 });
@@ -894,7 +987,3 @@ modalBtnClose.addEventListener('click',closeModal);
 function closeModal(e){
     modalContainer.classList.remove("modal__open")
 }
-
-
-
-
