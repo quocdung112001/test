@@ -837,6 +837,6 @@ btn1.onclick = function(e){
     rs1.innerText = text1;
 }
 
-console.log("conme mchung may");
+console.log("gio mat vs t a");
 let newBox = document .querySelector('.new__box');
 console.log([newBox]);
