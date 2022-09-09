@@ -113,8 +113,60 @@
 
     <div class="new__box">
         <h4>thuc hanh ve node propeties</h4>
+        <div class="drag__container">
+            <div class="drag__item">
+                <img src="https://cdn.pixabay.com/photo/2015/01/17/13/52/gem-602252__340.jpg" 
+                alt="" class="drag__img">
+            </div>
+            <div class="drag__item">
+                <img src="https://cdn.pixabay.com/photo/2015/01/17/13/52/gem-602252__340.jpg" 
+                alt="" class="drag__img">
+            </div>
+            <div class="drag__item"></div>
+            <div class="drag__item"></div>
+            <div class="drag__item"></div>
+        </div>
+        <div class="buttonsearch__container">
+            <div class="search__input">
+                <input type="text" id="ipSearch">
+                <div class="button__search">
+                    <button id="btnSearch">
+                        <ion-icon name="search"></ion-icon>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="modal__container">
+            <div class="open__modal">
+                Open Modal
+            </div>
+           
+        </div>
+        
     </div>
-    .gra
+
+    <div class="modal">
+        <div class="modal__overlay"></div>
+        <div class="modal__body">
+            <div class="modal__body-heading">
+                <p class="heading__title">Welcome to Nodemy</p>
+                <ion-icon name="close" id="icon"></ion-icon>
+            </div>
+            <div class="modal__body-content">
+                <div class="content__top">
+                    <h1 class="content__top-title">Modal</h1>
+                    <p class="content__top-desc">
+                        Đây là phần body của modal
+                    </p>
+                </div>
+                <div class="content__bottom">
+                    <button class="content__bottom-button">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
+<script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 <script src="./main.js"></script>
 </html>

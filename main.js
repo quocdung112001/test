@@ -840,3 +840,61 @@ btn1.onclick = function(e){
 console.log("gio mat vs t a");
 let newBox = document .querySelector('.new__box');
 console.log([newBox]);
+
+
+//Drag
+
+let dragBoxs = document.querySelectorAll('.drag__item');
+let dragImgs = document.querySelectorAll('.drag__img');
+var imgCurrentTarget = null;
+
+dragImgs.forEach(function(dragImg){
+    dragImg.addEventListener('dragstart',function(e){
+        imgCurrentTarget = this;
+    })
+})
+
+dragBoxs.forEach(function(box){
+    box.addEventListener('dragover', function(e){
+        e.preventDefault();
+    });
+    box.addEventListener('drop',function(e){
+        if(box.querySelector('.drag__img') === null){
+            console.log(this.contains(imgCurrentTarget))
+            this.appendChild(imgCurrentTarget);
+        }
+    });
+})
+
+
+var searchContainer = document.querySelector('.search__input');
+var searchButton = document.querySelector('#btnSearch');
+
+searchButton.addEventListener('click',function(e){
+    this.parentElement.parentElement.classList.toggle('open__search');
+    this.parentElement.previousElementSibling.focus();
+});
+
+var modalBtn = document.querySelector('.open__modal');
+var modalContainer = document.querySelector('.modal');
+var modalBody = document.querySelector('.modal__overlay');
+var modalIconClose = document.querySelector('#icon');
+var modalBtnClose = document.querySelector('.content__bottom-button');
+
+
+modalBtn.addEventListener('click',function(){
+    modalContainer.classList.add("modal__open");
+});
+
+modalBody.addEventListener('click',closeModal);
+modalIconClose.addEventListener('click',closeModal);
+modalBtnClose.addEventListener('click',closeModal);
+
+
+function closeModal(e){
+    modalContainer.classList.remove("modal__open")
+}
+
+
+
+

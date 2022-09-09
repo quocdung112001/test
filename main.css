@@ -102,3 +102,172 @@ body{
 .ex{
     display: none;
 }
+
+.new__box{
+    padding: 30px 10px;
+    background: linear-gradient(135deg,rgb(55, 0, 255),rgb(172, 74, 180));
+}
+
+.drag__container{
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(200px,1fr));
+    gap: 10px;
+    height: 100px;
+    padding: 10px;
+}
+
+.drag__item{
+    border: 1px solid #333;
+    overflow: hidden;
+}
+
+.drag__img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.buttonsearch__container{
+    margin: 30px auto;
+}
+
+.search__input{
+    width: 70px;
+    height: 70px;
+    margin: 30px auto;
+    background-color: #333;
+    border-radius: 15px;
+    border: none;
+    outline: none;
+    transition: 0.3s ease;
+    overflow: hidden;
+    position: relative;
+}
+
+#ipSearch{
+    width: 100%;
+    height: 100%;
+    padding: 0 90px 0 20px;
+    background-color: transparent;
+    color: white;
+    font-size: 35px;
+    line-height: 70px;
+    border: none;
+    outline: none;
+    
+    box-sizing: border-box;
+}
+
+.button__search{
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 70px;
+    height: 70px;
+}
+
+#btnSearch{
+    width: 100%;
+    height: 100%;
+    border-radius: 15px;
+    border: none;
+    outline: none;
+}
+
+#btnSearch ion-icon{
+    font-size: 45px;
+    line-height: 70px;
+}
+
+.open__search{
+    width: 400px;
+}
+
+.open__modal{
+    margin: 0 auto;
+    width: 100px;
+    background-color: white;
+    text-align: center;
+    font-weight: 600;
+    padding: 10px 20px;
+    border-radius: 5px;
+}
+
+.modal{
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    visibility: hidden;
+}
+
+.modal__overlay{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.3);
+}
+
+.modal__body{
+    width: 400px;
+    background-color: white;
+    margin: auto;
+    z-index: 3;
+    display: flex;
+    flex-direction: column;
+}
+
+.modal__body-heading{
+    display: flex;
+    height: 40px;
+    align-items: center;
+    justify-content: space-between;
+    line-height: 30px;
+    padding: 0 10px;
+    background-color: rgb(188, 59, 59);
+    color: #fff;
+}
+
+.heading__title{
+    margin: 0;
+}
+
+.modal__body-heading ion-icon{
+    font-size: 20px;
+}
+
+.modal__body-content{
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+.content__top{
+    padding: 0;
+    flex: 1;
+    padding: 10px 10px;
+}
+.content__top-title{
+    margin: 0;
+    font-size: 20px;
+    color: rgb(188, 59, 59);
+}
+.content__top-desc{
+    margin: 10px 0;
+}
+.content__bottom{
+    text-align: right;
+    margin: 10px;
+}
+.content__bottom-button{
+    color:#fff;
+    background-color: rgb(188, 59, 59);
+    border: none;
+    border-radius: 3px;
+    padding: 5px 10px;
+}
+
+.modal__open{
+    visibility: visible;
+}
