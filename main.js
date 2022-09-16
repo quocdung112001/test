@@ -788,202 +788,633 @@
 //     console.log(e.target.id);
 // }
 
-var users = [
-    {
-        id : 1,
-        name : "Dung",
-        avatar : "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS5SBCgK1Baplawxi84ccVQYr5qA1V1DtVvdg&usqp=CAU"
-    },
-    {
-        id : 2,
-        name : "Ly",
-        avatar : "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS5SBCgK1Baplawxi84ccVQYr5qA1V1DtVvdg&usqp=CAU"
-    },
-    {
-        id : 3,
-        name : "Phong",
-        avatar : "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS5SBCgK1Baplawxi84ccVQYr5qA1V1DtVvdg&usqp=CAU"
-    },
-    {
-        id : 4,
-        name : "Lok",
-        avatar : "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS5SBCgK1Baplawxi84ccVQYr5qA1V1DtVvdg&usqp=CAU"
-    }
-];
+// var users = [
+//     {
+//         id : 1,
+//         name : "Dung",
+//         avatar : "https://cdn.pixabay.com/photo/2014/09/14/18/04/dandelion-445228__340.jpg"
+//     },
+//     {
+//         id : 2,
+//         name : "Ly",
+//         avatar : "https://cdn.pixabay.com/photo/2014/09/14/18/04/dandelion-445228__340.jpg"
+//     },
+//     {
+//         id : 3,
+//         name : "Phong",
+//         avatar : "https://cdn.pixabay.com/photo/2014/09/14/18/04/dandelion-445228__340.jpg"
+//     },
+//     {
+//         id : 4,
+//         name : "Lok",
+//         avatar : "https://cdn.pixabay.com/photo/2014/09/14/18/04/dandelion-445228__340.jpg"
+//     }
+// ];
 
-var statuss = [
-    {
-        id : 1,
-        userId: 2,
-        title : "Moi cac anh vao"
-    },
-    {
-        id : 2,
-        userId: 4,
-        title : "Moi cac anh vao"
-    },
-    {
-        id : 4,
-        userId: 3,
-        title : "Moi cac anh vao"
-    }
-];
+// var statuss = [
+//     {
+//         id : 1,
+//         userId: 2,
+//         title : "Moi cac anh vao"
+//     },
+//     {
+//         id : 2,
+//         userId: 4,
+//         title : "Moi cac anh vao"
+//     },
+//     {
+//         id : 4,
+//         userId: 3,
+//         title : "Moi cac anh vao"
+//     }
+// ];
 
-var container = document.querySelector('.root');
-container.innerHTML = '<ul></ul>';
-var listComment = document.querySelector('ul');
-listComment.className = 'comment__list';
+// var container = document.querySelector('.root');
+// container.innerHTML = '<ul></ul>';
+// var listComment = document.querySelector('ul');
+// listComment.className = 'comment__list';
 
-function getComment(){
-    return new Promise(function(resolve){
-        setTimeout(function(){
-            resolve(statuss);
-        },1000);
-    });
-}
+// function getComment(){
+//     return new Promise(function(resolve){
+//         setTimeout(function(){
+//             resolve(statuss);
+//         },1000);
+//     });
+// }
 
-function getUsersById(userIds){
-    return new Promise(function(resolve){
-        var result = users.filter(function(user){
-            return userIds.includes(user.id);
-        });
-        setTimeout(function(){
-            resolve(result);
-        },1000);
-    });
-}
+// function getUsersById(userIds){
+//     return new Promise(function(resolve){
+//         var result = users.filter(function(user){
+//             return userIds.includes(user.id);
+//         });
+//         setTimeout(function(){
+//             resolve(result);
+//         },1000);
+//     });
+// }
 
-getComment()
-    .then(function(sts){
-        var userId = sts.map(function(stsValue){
-            return stsValue.userId;
-        });
-        return getUsersById(userId)
-            .then(function(users){
-                return users;
-            });
-    })
-    .then(function(data){
-        console.log(data);
-        var item = data.map(function(value){
-            return `<li><span>Toi ten: ${value.name}</span>
-            <img src='${value.avatar}'></li>`
-        });
-        console.log(item);
-        writeHTML(item);
-    });
-
-
-function writeHTML(a){
-    a.forEach(function(value){
-        listComment.innerHTML += value;
-    });
-}
-
-var inputName = document.querySelector('#name');
-var inputPass = document.querySelector('#password');
-var inputCountry = document.querySelector('#country');
-var btnSubmit = document.querySelector('#submit');
-var result = document.querySelector('#data');
-btnSubmit.onclick = function(e){
-    e.preventDefault();
-    result.textContent = `ten tai khoan: ${inputName.value}
-                        mat khau : ${inputPass.value}
-                        Dat nuoc: ${inputCountry.value}`;
-};
+// getComment()
+//     .then(function(sts){
+//         var userId = sts.map(function(stsValue){
+//             return stsValue.userId;
+//         });
+//         return getUsersById(userId)
+//             .then(function(users){
+//                 return users;
+//             });
+//     })
+//     .then(function(data){
+//         console.log(data);
+//         var item = data.map(function(value){
+//             return `<li><span>Toi ten: ${value.name}</span>
+//             <img src='${value.avatar}'></li>`
+//         });
+//         console.log(item);
+//         //writeHTML(item);
+//     });
 
 
-let list = document.getElementById('search_advance');
-let clickSearch = document.querySelector('#show_search_advance');
+// function writeHTML(a){
+//     a.forEach(function(value){
+//         listComment.innerHTML += value;
+//     });
+// }
+
+// var inputName = document.querySelector('#name');
+// var inputPass = document.querySelector('#password');
+// var inputCountry = document.querySelector('#country');
+// var btnSubmit = document.querySelector('#submit');
+// var result = document.querySelector('#data');
+// btnSubmit.onclick = function(e){
+//     e.preventDefault();
+//     result.textContent = `ten tai khoan: ${inputName.value}
+//                         mat khau : ${inputPass.value}
+//                         Dat nuoc: ${inputCountry.value}`;
+// };
 
 
-clickSearch.onclick = function(){
-    let text = clickSearch.innerText;
-    list.classList.toggle('ex');
-    if(text === 'Tìm kiếm nâng cao'){
-        clickSearch.innerText = 'Bỏ tìm kiếm nâng cao';
-    }else{
-        clickSearch.innerText = 'Tìm kiếm nâng cao';
-    }
-}
-
-let tb = document.querySelector('.newTB');
-console.log(tb.childNodes);
-let dlBt = document.querySelectorAll('.btn');
-console.log(dlBt);
-for(var i in dlBt){
-    dlBt[i].onclick = function(e){
-        console.log(e.target);
-        let parent = e.target.parentElement.parentElement;
-        parent.remove();
-    }
-}
-
-let titleEx3 = document.querySelector('#title1');
-let rs1 = document.querySelector('#result1');
-let btn1 = document.querySelector('#button_add');
-
-btn1.onclick = function(e){
-    let text1 = titleEx3.value;
-    console.log(text1);
-    rs1.innerText = text1;
-}
-
-console.log("gio mat vs t a");
-let newBox = document .querySelector('.new__box');
-console.log([newBox]);
+// let list = document.getElementById('search_advance');
+// let clickSearch = document.querySelector('#show_search_advance');
 
 
-//Drag
+// clickSearch.onclick = function(){
+//     let text = clickSearch.innerText;
+//     list.classList.toggle('ex');
+//     if(text === 'Tìm kiếm nâng cao'){
+//         clickSearch.innerText = 'Bỏ tìm kiếm nâng cao';
+//     }else{
+//         clickSearch.innerText = 'Tìm kiếm nâng cao';
+//     }
+// }
 
-let dragBoxs = document.querySelectorAll('.drag__item');
-let dragImgs = document.querySelectorAll('.drag__img');
-var imgCurrentTarget = null;
+// let tb = document.querySelector('.newTB');
+// console.log(tb.childNodes);
+// let dlBt = document.querySelectorAll('.btn');
+// console.log(dlBt);
+// for(var i in dlBt){
+//     dlBt[i].onclick = function(e){
+//         console.log(e.target);
+//         let parent = e.target.parentElement.parentElement;
+//         parent.remove();
+//     }
+// }
 
-dragImgs.forEach(function(dragImg){
-    dragImg.addEventListener('dragstart',function(e){
-        imgCurrentTarget = this;
-    })
-})
+// let titleEx3 = document.querySelector('#title1');
+// let rs1 = document.querySelector('#result1');
+// let btn1 = document.querySelector('#button_add');
 
-dragBoxs.forEach(function(box){
-    box.addEventListener('dragover', function(e){
-        e.preventDefault();
-    });
-    box.addEventListener('drop',function(e){
-        if(box.querySelector('.drag__img') === null){
-            console.log(this.contains(imgCurrentTarget))
-            this.appendChild(imgCurrentTarget);
-        }
-    });
-})
+// btn1.onclick = function(e){
+//     let text1 = titleEx3.value;
+//     console.log(text1);
+//     rs1.innerText = text1;
+// }
+
+// console.log("gio mat vs t a");
+// let newBox = document .querySelector('.new__box');
+// console.log([newBox]);
 
 
-var searchContainer = document.querySelector('.search__input');
-var searchButton = document.querySelector('#btnSearch');
+// //Drag
 
-searchButton.addEventListener('click',function(e){
+// let dragBoxs = document.querySelectorAll('.drag__item');
+// let dragImgs = document.querySelectorAll('.drag__img');
+// var imgCurrentTarget = null;
+
+// dragImgs.forEach(function(dragImg){
+//     dragImg.addEventListener('dragstart',function(e){
+//         imgCurrentTarget = this;
+//     })
+// })
+
+// dragBoxs.forEach(function(box){
+//     box.addEventListener('dragover', function(e){
+//         e.preventDefault();
+//     });
+//     box.addEventListener('drop',function(e){
+//         if(box.querySelector('.drag__img') === null){
+//             console.log(this.contains(imgCurrentTarget))
+//             this.appendChild(imgCurrentTarget);
+//         }
+//     });
+// })
+
+
+// var searchContainer = document.querySelector('.search__input');
+// var searchButton = document.querySelector('#btnSearch');
+
+// searchButton.addEventListener('click',function(e){
     
-    this.parentElement.parentElement.classList.toggle('open__search');
-    this.parentElement.previousElementSibling.focus();
-});
+//     this.parentElement.parentElement.classList.toggle('open__search');
+//     this.parentElement.previousElementSibling.focus();
+// });
 
-var modalBtn = document.querySelector('.open__modal');
-var modalContainer = document.querySelector('.modal');
-var modalBody = document.querySelector('.modal__overlay');
-var modalIconClose = document.querySelector('#icon');
-var modalBtnClose = document.querySelector('.content__bottom-button');
-
-
-modalBtn.addEventListener('click',function(){
-    modalContainer.classList.add("modal__open");
-});
-
-modalBody.addEventListener('click',closeModal);
-modalIconClose.addEventListener('click',closeModal);
-modalBtnClose.addEventListener('click',closeModal);
+// var modalBtn = document.querySelector('.open__modal');
+// var modalContainer = document.querySelector('.modal');
+// var modalBody = document.querySelector('.modal__overlay');
+// var modalIconClose = document.querySelector('#icon');
+// var modalBtnClose = document.querySelector('.content__bottom-button');
 
 
-function closeModal(e){
-    modalContainer.classList.remove("modal__open")
+// modalBtn.addEventListener('click',function(){
+//     modalContainer.classList.add("modal__open");
+// });
+
+// modalBody.addEventListener('click',closeModal);
+// modalIconClose.addEventListener('click',closeModal);
+// modalBtnClose.addEventListener('click',closeModal);
+
+
+// function closeModal(e){
+//     modalContainer.classList.remove("modal__open")
+// }
+
+
+// var promise = new Promise(
+//     function(resolve,reject){
+//        resolve("Hello")
+//         //reject("Error!")
+//     }
+// );
+
+// promise
+// .then((data) => {
+//     return 1;
+// })
+// .then((data) => {
+//     console.log(data)
+//     return 2;
+// })
+// .then((data) => {
+//     console.log(data)
+//     return 3;
+// })
+// .then((data) =>{
+//     console.log(data)
+// })
+// .catch((data) => {
+//     console.log(data)
+// })
+
+// const mbody = document.querySelector('body');
+// console.log(mbody)
+// var a = document.createElement('p');
+// a.innerText = "day la the p";
+// a.className = "p__class";
+// mbody.appendChild(a);
+// console.log("<<<<<<<<<",document.querySelector(".p__class"))
+
+// mbody.removeChild(a)
+
+// class Course{
+//     constructor(firstName,lastName){
+//         this.firstName =  firstName;
+//         this.lastName = lastName;
+//     }
+//     getName() {
+//         console.log(`Toi ten la ${this.firstName} ${this.lastName}. xin chao.`)
+//     }
+// }
+
+
+
+// var person = new Course('Nguyen','Dung');
+// person.getName();
+
+// const tagsTop = document.querySelectorAll('.top__tag-item');
+// const tagsBottom = document.querySelectorAll('.bottom__tag');
+// const underLine = document.querySelector('.top__tag-underline');
+// requestIdleCallback(function () {
+//     underLine.style.left = tabActive.offsetLeft + "px";
+//     underLine.style.width = tabActive.offsetWidth + "px";
+// });
+
+// tagsTop.forEach(function(value,index){
+//     value.addEventListener('click',function(){
+//         const tagTop = document.querySelector('.top__tag-item.active');
+//         const tagBottom = document.querySelector('.bottom__tag.active')
+//         tagTop.classList.remove('active');
+//         tagBottom.classList.remove('active');
+//         this.classList.add('active');
+//         tagsBottom[index].classList.add('active');
+        
+//         console.log(this.offsetLeft);
+//         console.log(this.offsetWidth);
+//         underLine.style.left = this.offsetLeft + 'px';
+//         underLine.style.width = this.offsetWidth + 'px';
+//     })
+// })
+
+
+//app music
+
+const $ = document.querySelector.bind(document);
+const $$ = document.querySelectorAll.bind(document);
+
+const PLAYER_STORAGE_KEY = 'Test-app-music';
+
+const playList = $('.music__list');
+const musicName = $('.music__playzone-name');
+const musicImg = $('.music__playzone-img');
+const audio = $('#audio');
+const playBtn = $('.btn__toggle-play');
+const cd = $('.music__playzone-disk');
+const timeBar = $('input[type=range]');
+const nextBtn = $('.next');
+const prevBtn = $('.prev');
+const randomBtn = $('.random');
+const repeatBtn = $('.repeat');
+console.log(repeatBtn)
+
+var app = {
+    currentIndex: 0,
+    a : [],
+    currentPlay: false,
+    isRandom: false,
+    isRepeat: false,
+    config :JSON.parse(localStorage.getItem(PLAYER_STORAGE_KEY)) || {},
+    songs: [
+        {
+            name : "Ngày em lấy chồng",
+            singer : "Khắc Việt",
+            img : './assets/img/img1.jpg',
+            music : './assets/music/music1.mp3'
+        },
+        {
+            name : "Hay là trăng nói",
+            singer : "Khắc Việt",
+            img : './assets/img/img2.jpg',
+            music : './assets/music/music2.mp3'
+        },
+        {
+            name : "Để rồi tổn thương",
+            singer : "Khắc Việt",
+            img : './assets/img/img3.jpg',
+            music : './assets/music/music4.mp3'
+        },
+        {
+            name : "Nước ngoài",
+            singer : "Khắc Việt",
+            img : './assets/img/img4.jpg',
+            music : './assets/music/music3.mp3'
+        },
+        {
+            name : "Ngày em lấy chồng",
+            singer : "Khắc Việt",
+            img : './assets/img/img1.jpg',
+            music : './assets/music/music1.mp3'
+        },
+        {
+            name : "Hay là trăng nói",
+            singer : "Khắc Việt",
+            img : './assets/img/img2.jpg',
+            music : './assets/music/music2.mp3'
+        },
+        {
+            name : "Để rồi tổn thương",
+            singer : "Khắc Việt",
+            img : './assets/img/img3.jpg',
+            music : './assets/music/music4.mp3'
+        },
+        {
+            name : "Nước ngoài",
+            singer : "Khắc Việt",
+            img : './assets/img/img4.jpg',
+            music : './assets/music/music3.mp3'
+        },
+        {
+            name : "Ngày em lấy chồng",
+            singer : "Khắc Việt",
+            img : './assets/img/img1.jpg',
+            music : './assets/music/music1.mp3'
+        },
+        {
+            name : "Hay là trăng nói",
+            singer : "Khắc Việt",
+            img : './assets/img/img2.jpg',
+            music : './assets/music/music2.mp3'
+        },
+        {
+            name : "Để rồi tổn thương",
+            singer : "Khắc Việt",
+            img : './assets/img/img3.jpg',
+            music : './assets/music/music4.mp3'
+        },
+        {
+            name : "Nước ngoài",
+            singer : "Khắc Việt",
+            img : './assets/img/img4.jpg',
+            music : './assets/music/music3.mp3'
+        }
+    ],
+    setConfig: function(key, value){
+        this.config[key] = value;
+        localStorage.setItem(PLAYER_STORAGE_KEY,JSON.stringify(this.config));
+    },
+    render: function(){
+        const htmls = this.songs.map((song,index) => {
+            return `
+                <div class="music__item music__item_${index} ${index === this.currentIndex ? "active" : "" }" data__index = "${index}">
+                    <img src='${song.img}' alt="music icon" class="music__icon">
+                    <div class="music__info">
+                        <span class="music__item-name">${song.name}</span>
+                        <span class="music__item-singer">${song.singer}</span>
+                    </div>
+                    <div class="music__item-option">
+                        <ion-icon name="ellipsis-vertical-outline"></ion-icon>
+                    </div>
+                </div>
+            `
+        })
+        var html = htmls.join('');
+        playList.innerHTML = html;
+    },
+    defineProperties : function(){
+        Object.defineProperty(this,'currentSong',{
+            get : function(){
+                return this.songs[this.currentIndex]
+            }
+        })
+    },
+    handleEvents: function(){
+        // const playListHeight = playList.offsetHeight;
+        // const cdWidth = cd.offsetWidth;
+        // playList.onscroll = function(){
+        //     const newCdWidth = cdWidth - Math.round(playList.scrollTop);
+        //     const newPlayListHeight = playListHeight + Math.round(playList.scrollTop)
+        //     cd.style.width = newCdWidth > 0 ? newCdWidth + 'px' : 0 ;
+        //     playList.style.height =  newPlayListHeight + 'px';
+        //     cd.style.opacity = newCdWidth/cdWidth;
+        // }
+
+        const cdAnimate = cd.animate([
+            {
+                transform: 'rotate(360deg)'
+            }
+        ], {
+            duration: 10000,
+            iterations : Infinity,
+        })
+        cdAnimate.pause();
+
+        playBtn.onclick = function(){
+            if(app.currentPlay){
+                audio.pause();
+            }
+            else{
+                audio.play();
+            }
+        }
+
+        audio.onplay =function(){
+            app.currentPlay = true;
+            playBtn.classList.add('playing');
+            cdAnimate.play();
+        }
+        audio.onpause = function(){
+            playBtn.classList.remove('playing');
+            app.currentPlay = false;
+            cdAnimate.pause();
+        }
+
+        audio.ontimeupdate = function(){
+            if(audio.duration){
+                timeBar.value = 
+                Math.round((timeBar.max * audio.currentTime) / audio.duration);
+            }
+        }
+        timeBar.onchange = function(){
+            if(audio.duration){
+                audio.currentTime = timeBar.value * audio.duration / 100;
+            }
+            
+        }
+        nextBtn.onclick = function(){
+            if(app.isRandom){
+                if(app.a.length >= app.songs.length - 1){
+                    app.a = [];
+                }
+                app.loadRandomSong();
+            }else{
+                app.loadNextSong();
+            }
+            audio.play();
+            app.activeSong();
+        }
+        prevBtn.onclick = function(){
+            if(app.isRandom){
+                if(app.a.length >= app.songs.length - 1){
+                    app.a = [];
+                }
+                app.loadRandomSong();
+            }else{
+                app.loadPrevSong();
+            }
+            audio.play();
+            app.activeSong();
+        }
+        audio.onended = function(){
+            if(app.isRepeat){
+                audio.play();
+            }
+            else if(app.isRandom){
+                if(app.a.length < app.songs.length - 1){
+                    app.loadRandomSong();
+                    audio.play();
+                }else{
+                    app.loadRandomSong();
+                    app.a = [];
+                }
+            }
+            else{
+                if(app.currentIndex !== app.songs.length - 1){
+                    app.autoLoadNextSong();
+                    audio.play();
+                }
+            }
+            app.activeSong();
+        }
+        randomBtn.onclick = function(){
+            app.a = [];
+            app.isRandom = !app.isRandom;
+            app.setConfig('isRandom',app.isRandom);
+            localStorage.removeItem('currentSong');
+            randomBtn.classList.toggle('is__active',app.isRandom);
+            randomBtn.classList.toggle('button__effect',!app.isRandom);
+            
+        }
+        repeatBtn.onclick = function(){
+            app.isRepeat = !app.isRepeat;
+            app.setConfig('isRepeat',app.isRepeat);
+            repeatBtn.classList.toggle('is__active',app.isRepeat);
+            repeatBtn.classList.toggle('button__effect',!app.isRepeat);
+        }
+        playList.onclick = function(e){
+            const musicNode = e.target.closest('.music__item:not(.active)');
+            if(musicNode || e.target.closest('.music__item-option')){
+                if(musicNode && !e.target.closest('.music__item-option')){
+                    app.currentIndex = Number(musicNode.getAttribute('data__index'));
+                    app.loadCurrentSong();
+                    audio.play();
+                    app.activeSong();
+                }
+                if(e.target.closest('.music__item-option')){
+                    console.log('cai deo j day')
+                }
+            }
+        }
+    },
+    //OK
+    loadCurrentSong: function(){
+        musicName.innerHTML = this.currentSong.name;
+        musicImg.style.backgroundImage = `url(${this.currentSong.img})`;
+        audio.src = this.currentSong.music;
+    },
+    loadConfig: function(){
+        this.isRandom = this.config.isRandom;
+        this.isRepeat = this.config.isRepeat;
+        randomBtn.classList.toggle('is__active',app.isRandom);
+        randomBtn.classList.toggle('button__effect',!app.isRandom);
+        repeatBtn.classList.toggle('is__active',app.isRepeat);
+        repeatBtn.classList.toggle('button__effect',!app.isRepeat);
+    },
+    //OK
+    loadNextSong: function(){     
+        this.currentIndex++;
+        if(this.currentIndex >= this.songs.length){
+            this.currentIndex = 0;
+        }
+        this.loadCurrentSong();
+    },
+    //OK
+    loadPrevSong: function(){     
+        this.currentIndex--;
+        if(this.currentIndex < 0){
+            this.currentIndex = this.songs.length - 1;
+        }
+        this.loadCurrentSong();
+    },
+    //OK
+    loadRandomSong: function(){
+        if(!this.a.includes(this.currentIndex)){
+            this.a.push(this.currentIndex);
+        }
+        if(this.a.length < this.songs.length){
+            let newIndex;
+            do{
+                newIndex = 
+                Math.floor(Math.random()*this.songs.length);
+                if(this.a.includes(newIndex)){
+                    newIndex = this.currentIndex;
+                }
+            }while(newIndex === this.currentIndex);
+            this.currentIndex = newIndex;
+            this.loadCurrentSong();
+        }
+    },
+    //OK
+    autoLoadNextSong: function(){
+        this.currentIndex++;
+        if(this.currentIndex < this.songs.length){
+            this.loadCurrentSong();
+        };
+    },
+    //OK
+    activeSong: function(){
+        const item = $('.music__item.active');
+        const itemActive = $(`.music__item_${this.currentIndex}`);
+        item.classList.remove("active");
+        itemActive.classList.add("active");
+        this.scrollItemActive();
+    },
+    //OK
+    scrollItemActive: function(){
+        const item = $('.music__item.active');
+        item.scrollIntoView({
+            behavior: "smooth", 
+            block: "center"
+        });
+    },
+    // selectMusic: function(){
+    //     const items = $$('.music__item');
+    //     items.forEach(function(item,index){
+    //         item.onclick = function(){
+    //             app.currentIndex = index;
+    //             app.loadCurrentSong();
+    //             audio.play();
+    //             app.activeSong();
+    //         }
+    //     });
+    // },
+    //OK
+    start: function(){
+        this.loadConfig();
+        this.defineProperties();
+        this.handleEvents();
+        this.loadCurrentSong();
+        this.render();
+        //this.selectMusic();
+    }
 }
+
+app.start();
+

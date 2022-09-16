@@ -5,11 +5,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./main.css">
-    <!-- <link rel="stylesheet" href="./reset.css"> -->
+    <link rel="stylesheet" href="./reset.css">
+    <link rel="shortcut icon" href="#">
     <title>Document</title>
 </head>
 <body>
-    <div class="form__container">
+    <!-- <div class="form__container">
         <form action="" class="form">
             <div class="form__row">
                 <label for="name" class="form__label">Name:</label>
@@ -166,6 +167,87 @@
         </div>
     </div>
     <div class="root">
+    </div>
+    <div class="test">
+        <div class="test__container">
+            <div class="top">
+                <ul class="top__tag">
+                    <li class="top__tag-item active">HTML/CSS</li>
+                    <li class="top__tag-item">JAVASCRIPT</li>
+                    <li class="top__tag-item">BOOOTSTRAP</li>
+                    <li class="top__tag-item">REACTJS</li>
+                    <div class="top__tag-underline"></div>
+                </ul>
+            </div>
+            <div class="bottom">
+                <div class="bottom__tag active">
+                    <h2 class="bottom__tag-title">HTML/CSS</h2>
+                    <p class="bottom__tag-content">
+                        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dicta culpa non assumenda ipsum. Ducimus excepturi, perspiciatis esse id a quam eligendi eaque aperiam tempore officiis quia maiores fugit dicta exercitationem?
+                    </p>
+                </div>
+                <div class="bottom__tag">
+                    <h2 class="bottom__tag-title">JAVASCRIPT</h2>
+                    <p class="bottom__tag-content">
+                        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dicta culpa non assumenda ipsum. Ducimus excepturi, perspiciatis esse id a quam eligendi eaque aperiam tempore officiis quia maiores fugit dicta exercitationem?
+                    </p>
+                </div>
+                <div class="bottom__tag">
+                    <h2 class="bottom__tag-title">BOOOTSTRAP</h2>
+                    <p class="bottom__tag-content">
+                        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dicta culpa non assumenda ipsum. Ducimus excepturi, perspiciatis esse id a quam eligendi eaque aperiam tempore officiis quia maiores fugit dicta exercitationem?
+                    </p>
+                </div>
+                <div class="bottom__tag">
+                    <h2 class="bottom__tag-title">REACTJS</h2>
+                    <p class="bottom__tag-content">
+                        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dicta culpa non assumenda ipsum. Ducimus excepturi, perspiciatis esse id a quam eligendi eaque aperiam tempore officiis quia maiores fugit dicta exercitationem?
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div> -->
+
+
+    <div class="play__music">
+        <div class="music__container">
+            <div class="music__playzone">
+                <div class="music__playzone-title">
+                    <p class="music__playzone-status">Now playing</p>
+                    <h2 class="music__playzone-name">Plaplapla</h2>
+                </div>
+                <div class="music__playzone-disk">
+                    <div class="music__playzone-img" 
+                        style="background-image: url('https://assets.yande.re/data/preview/bf/0e/bf0e78fcc9d94d6ca44b59bcb4882896.jpg')">
+                    </div>
+                </div>
+                <div class="music__nav">
+                    <ul class="music__nav-list">
+                        <li class="music__nav-item">
+                            <ion-icon name="refresh-outline" class="repeat button__effect"></ion-icon>
+                        </li>
+                        <li class="music__nav-item">
+                            <ion-icon name="play-skip-back-outline" class = "prev button__effect"></ion-icon>
+                        </li>
+                        <li class="music__nav-item btn__toggle-play">
+                            <ion-icon name="play-circle-outline" class="play button__effect"></ion-icon>
+                            <ion-icon name="pause-circle-outline" class="pause button__effect"></ion-icon>
+                        </li>
+                        <li class="music__nav-item">
+                            <ion-icon name="play-skip-forward-outline" class ="next button__effect"></ion-icon>
+                        </li>
+                        <li class="music__nav-item">
+                            <ion-icon name="shuffle-outline" class="random button__effect"></ion-icon>
+                        </li>
+                    </ul>
+                    <input type="range" min= "0" max="100" step="1" value="0">
+                    <audio src="" id = "audio"></audio>
+                </div>
+            </div>
+            <div class="music__list">
+                
+            </div>
+        </div>
     </div>
 </body>
 <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>

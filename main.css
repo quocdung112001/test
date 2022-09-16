@@ -1,8 +1,13 @@
 body{
     background-color: #ccc;
+    box-sizing: border-box;
 }
 
-.form__container{
+*{
+    box-sizing: inherit;
+}
+
+/* .form__container{
     width: 640px;
     margin: 50px auto 0 auto;
 }
@@ -270,4 +275,241 @@ body{
 
 .modal__open{
     visibility: visible;
+}
+
+.test__container{
+    background-color: #fff;
+    padding: 0 20px;
+}
+
+.top{
+
+}
+
+.top__tag{
+    list-style: none;
+    display: flex;
+    padding: 0;
+    margin: 0;
+    position: relative;
+}
+.top__tag-item{
+    color: rgb(253, 125, 146);
+    font-weight: 600;
+    padding: 10px 40px;
+    border-bottom: 5px solid #fff;
+}
+
+.top__tag-item.active{
+    color: rgb(249, 3, 44);
+}
+.top__tag-item:hover{
+    background-color: rgb(235, 182, 191);
+    border-color: rgb(239, 115, 136);
+}
+
+.top__tag-underline{
+    position: absolute;
+    top:calc(100% - 5px);
+    left: 0;
+    width: 0;
+    height: 5px;
+    background-color: rgb(245, 34, 69);
+    border-radius: 10px;
+    transition: all ease 0.3s;
+}
+
+.bottom__tag{
+    display: none;
+}
+
+.bottom__tag.active{
+    display: block;
+} */
+
+.play__music{
+    font-family: Arial, Helvetica, sans-serif;
+    padding: 30px;
+    background: linear-gradient(120deg,purple,#a200ff);
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+}
+.music__container{
+    width: 300px;
+    height: 600px;
+    margin: auto;
+    background-color: #d4d2d9;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 5px 2px 5px #333;
+    display: flex;
+    flex-direction: column;
+}
+.music__playzone{
+    width: 100%;
+    padding: 20px;
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.music__playzone-title{
+    text-align: center;
+    margin: 0px 10px 15px 10px;
+}
+.music__playzone-status{
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: purple;
+}
+.music__playzone-name{
+    margin-top: 10px;
+    font-size: 1.4rem;
+    font-weight: 600;
+    text-shadow: 1px 1px purple;
+    word-wrap: break-word;
+}
+
+.music__playzone-disk{
+    width: 200px;
+    max-width: 200px;
+    margin: auto;
+    display: flex;
+}
+.music__playzone-img{
+    width: 100%;
+    padding-top: 100%;
+    background-size: cover;
+    border-radius: 50%;
+    box-shadow: 0 0 5px yellow,0 0 10px purple,0 0 15px #a200ff;
+    margin: auto;
+}
+
+.music__nav{
+    width: 100%;
+    margin-top: 20px;
+}
+.music__nav-list{
+    display: flex;
+    justify-content: space-between;
+    align-content: center;
+    align-items: center;
+}
+.music__nav-item {
+    font-size: 1.4rem;
+    line-height: 2.5rem;
+}
+
+.btn__toggle-play{
+    font-size: 2.5rem;
+}
+
+.btn__toggle-play ion-icon{
+    border-radius: 50%;
+    color: purple;
+    transition: all ease 0.3s;
+}
+
+.btn__toggle-play ion-icon:hover{
+    background: linear-gradient(120deg,purple,#a200ff);
+    color: #fff;
+}
+
+.pause{
+    display: none;
+}
+
+.btn__toggle-play.playing .play{
+    display: none;
+}
+
+.btn__toggle-play.playing .pause{
+    display: inline-flex;
+}
+
+.music__nav input[type=range]{
+    width: 100%;
+}
+
+.music__list{
+    flex: 1;
+    height: 200px;
+    margin: 10px 4px 10px 10px;
+    overflow-y: auto;
+    scroll-snap-type: y mandatory;
+    padding-right: 6px;
+}
+
+.music__list::-webkit-scrollbar{
+    display: none;
+}
+
+.music__item{
+    background-color: #fff;
+    border-radius: 5px;
+    overflow: hidden;
+    box-shadow: 2px 2px 5px #333;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 10px;
+}
+
+.music__item.active{
+    background: linear-gradient(120deg,purple,#a200ff);
+    color: white;
+}
+
+.music__icon{
+	width: 50px;
+    height: 50px;
+    object-fit: cover;
+}
+
+.music__info{
+    flex: 1;
+    margin-left: 10px;
+    display:flex ;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.music__item-name{
+    width: 100%;
+    font-size: 1.1rem;
+    font-weight: 600;
+    word-break: break-all;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.music__item-singer{
+    color: rgb(190, 190, 190);
+}
+
+.music__item-option{
+    margin-right: 5px;
+}
+
+.is__active{
+    background: linear-gradient(120deg,purple,#a200ff);
+    color: #fff;
+    box-shadow: none;
+    transform: translateY(2px);
+    border-radius: 5px;
+    box-shadow: 1px 1px 0 purple;
+    border: 1px solid purple;
+}
+
+.button__effect{
+    border: 1px solid purple;
+    border-radius: 5px;
+    box-shadow: 1px 3px 0 purple;
 }
